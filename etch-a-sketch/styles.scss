@@ -62,6 +62,7 @@ main {
 
   #container {
 
+    display: none;
     width: 500px;
     height: 500px;
     margin: 1rem 0;
@@ -69,6 +70,7 @@ main {
 
   #controls {
 
+    display: none;
     text-align: center;
 
     button {
@@ -127,15 +129,13 @@ footer {
 
 @media (hover: hover) and (pointer: fine) {
 
-  footer {
+  main {
+    #container, #controls {
+      display: initial;
+    }
 
-    a {
-
-      &:hover {
-
-        color: $secondary;
-        border-color: transparent;
-      }
+    #mobile-message {
+      display: none;
     }
   }
 }
