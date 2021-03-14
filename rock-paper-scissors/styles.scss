@@ -132,10 +132,6 @@ main {
       letter-spacing: 0.1em;
       font-weight: 700;
 
-      &:hover {
-        background: $secondary;
-      }
-
       &:active {
         background: $tertiary;
       }
@@ -157,12 +153,39 @@ footer {
     text-decoration: none;
     border-bottom: 1px solid;
 
-    &:hover,
     &:focus,
     &:active {
 
       color: $secondary;
       border-color: transparent;
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  main {
+
+    #buttons {
+
+      button {
+
+        &:hover {
+          background: $secondary;
+        }
+      }
+    }
+  }
+
+  footer {
+
+    a {
+
+      &:hover {
+
+        color: $secondary;
+        border-color: transparent;
+      }
     }
   }
 }

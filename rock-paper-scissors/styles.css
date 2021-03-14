@@ -97,9 +97,6 @@ main #buttons button {
   letter-spacing: 0.1em;
   font-weight: 700;
 }
-main #buttons button:hover {
-  background: skyblue;
-}
 main #buttons button:active {
   background: salmon;
 }
@@ -115,9 +112,20 @@ footer a {
   text-decoration: none;
   border-bottom: 1px solid;
 }
-footer a:hover, footer a:focus, footer a:active {
+footer a:focus, footer a:active {
   color: skyblue;
   border-color: transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  main #buttons button:hover {
+    background: skyblue;
+  }
+
+  footer a:hover {
+    color: skyblue;
+    border-color: transparent;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
