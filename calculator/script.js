@@ -35,6 +35,7 @@ function evaluateExpression () {
     a = null;
     b = null;
     op = null;
+    hasDecimal = false;
   }
 
   else {
@@ -58,6 +59,7 @@ function appendNum (num) {
   if (op !== null && b === null) {
     displayValue = "";
     updateDisplay();
+    hasDecimal = false;
   }
 
   displayValue += num.toString();
@@ -72,6 +74,7 @@ function appendDec () {
 
   displayValue += ".";
   updateDisplay(false);
+  hasDecimal = true;
 }
 
 function operate (operator, a, b) {
@@ -117,6 +120,7 @@ function clearDisplay () {
   a = null;
   b = null;
   op = null;
+  hasDecimal = false;
 }
 
 function add (a, b) {
