@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+* {
+  transition: all 0.1s ease-in-out;
+}
+
+html {
+  height: 100%;
+  background: #101216;
+  color: #fcfcfc;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+main {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main #container {
+  width: 500px;
+  height: 500px;
+  margin: 1rem 0;
+}
+main #controls {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+main #controls button {
+  cursor: pointer;
+  min-width: 8rem;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #101216;
+  border: none;
+  box-shadow: none;
+  padding: 0.5rem 0;
+  margin: 0 0.5rem;
+  border-radius: 20px;
+}
+main #controls button:hover {
+  background: skyblue;
+}
+main #controls button:active {
+  background: salmon;
+}
+
+footer {
+  text-align: center;
+}
+footer p {
+  margin: 0;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+footer a {
+  color: #fcfcfc;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+footer a:focus, footer a:active {
+  color: skyblue;
+  border-color: transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  footer a:hover {
+    color: skyblue;
+    border-color: transparent;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
