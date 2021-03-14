@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculator</title>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Calculator</h1>
+    </header>
+    <main>
+      <div id="calculator">
+        <p id="display">0</p>
+        <div id="buttons">
+          <button onclick="appendNum(7)" class="num" id="7">7</button>
+          <button onclick="appendNum(8)" class="num" id="8">8</button>
+          <button onclick="appendNum(9)" class="num" id="9">9</button>
+          <button onclick="appendOp('+')" class="op" id="add">+</button>
+          <button onclick="appendNum(4)" class="num" id="4">4</button>
+          <button onclick="appendNum(5)" class="num" id="5">5</button>
+          <button onclick="appendNum(6)" class="num" id="6">6</button>
+          <button onclick="appendOp('-')" class="op" id="sub">-</button>
+          <button onclick="appendNum(1)" class="num" id="1">1</button>
+          <button onclick="appendNum(2)" class="num" id="2">2</button>
+          <button onclick="appendNum(3)" class="num" id="3">3</button>
+          <button onclick="appendOp('*')" class="op" id="mul">&times;</button>
+          <button onclick="clearDisplay()" id="clear">C</button>
+          <button onclick="appendNum(0)" class="num" id="0">0</button>
+          <button onclick="appendDec()" class="num" id="dec">.</button>
+          <button onclick="appendOp('/')" class="op" id="div">&div;</button>
+          <button onclick="evaluateExpression()" id="eq">=</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; Kashyap Patel 2021</p>
+      <a href="http://kashpatel.ca">kashpatel.ca</a>
+    </footer>
+  </body>
+</html>
