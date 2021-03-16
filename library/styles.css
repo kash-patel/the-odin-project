@@ -73,7 +73,6 @@ footer a:focus, footer a:active {
 main .inactive {
   user-select: none;
   pointer-events: none;
-  transform: scale(0.9);
   filter: opacity(0.5);
 }
 main #book-list {
@@ -176,10 +175,10 @@ main #book-list .book-card .actions .remove-button:active {
   background: salmon;
 }
 main #new-book-form {
-  transform: scale(0.5);
   filter: opacity(0);
   pointer-events: none;
   user-select: none;
+  z-index: 1;
   top: 20%;
   position: fixed;
   display: flex;
@@ -270,6 +269,9 @@ main #new-book-form input.submit-button:hover {
 }
 main #new-book-form input.submit-button:active {
   background: #929292;
+}
+main #new-book-form input:invalid {
+  box-shadow: 0 0 20px salmon;
 }
 main button#new-book {
   position: fixed;

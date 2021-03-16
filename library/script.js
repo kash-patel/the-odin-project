@@ -18,10 +18,10 @@ function init () {
   newBookButton = document.querySelector("button#new-book");
   newBookButton.addEventListener("click", () => showNewBookForm());
 
-  formTitleField = document.forms["new-book-form"].elements["title"];
-  formAuthorField = document.forms["new-book-form"].elements["author"];
-  formPagesField = document.forms["new-book-form"].elements["pages"];
-  formReadCheckbox = document.forms["new-book-form"].elements["read"];
+  formTitleField = newBookForm.elements["title"];
+  formAuthorField = newBookForm.elements["author"];
+  formPagesField = newBookForm.elements["pages"];
+  formReadCheckbox = newBookForm.elements["read"];
 
   for (let i = 0; i < 3; i++) {
     const book = new Book(bookHash("Book " + i, "Author " + 1, i), "Book " + i, "Author " + i, i, false);
@@ -61,7 +61,7 @@ function createBook () {
   addBookToLibrary(newBook);
 
   hideNewBookForm();
-  resetNewBookForm();
+  newBookForm.reset();
 }
 
 function showNewBookForm () {
@@ -72,7 +72,6 @@ function showNewBookForm () {
   bookList.classList.add("inactive");
 
   newBookForm.style.filter = "opacity(1)";
-  newBookForm.style.transform = "scale(1)";
   newBookForm.style.pointerEvents = "auto";
   newBookForm.style.userSelect = "auto";
 
@@ -99,17 +98,9 @@ function hideNewBookForm () {
   bookList.classList.remove("inactive");
 
   newBookForm.style.filter = "opacity(0)";
-  newBookForm.style.transform = "scale(0.5)";
+  // newBookForm.style.transform = "scale(0.5)";
   newBookForm.style.pointerEvents = "none";
   newBookForm.style.userSelect = "none";
-}
-
-function resetNewBookForm () {
-
-  formTitleField.value = '';
-  formAuthorField.value = '';
-  formPagesField.value = '';
-  formReadCheckbox.checked = false;
 }
 
 function addBookToLibrary (book) {

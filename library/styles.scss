@@ -5,7 +5,6 @@ main {
   .inactive {
     user-select: none;
     pointer-events: none;
-    transform: scale(0.9);
     filter: opacity(0.5);
   }
 
@@ -140,11 +139,12 @@ main {
 
   #new-book-form {
 
-    transform: scale(0.5);
+    // transform: scale(0.5);
     filter: opacity(0);
     pointer-events: none;
     user-select: none;
 
+    z-index: 1;
     top: 20%;
     position: fixed;
     display: flex;
@@ -248,6 +248,10 @@ main {
         &:active {
           background: lighten($background, 50);
         }
+      }
+
+      &:invalid {
+        box-shadow: 0 0 20px salmon;
       }
     }
   }
