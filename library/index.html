@@ -17,10 +17,13 @@
       <form id="new-book-form" name="new-book-form" novalidate onsubmit="return false">
         <label for="title">Title:</label><br/>
         <input class="text-input" type="text" name="title" required><br/>
+        <p class="invalid-input-text" id="invalid-title-text">Title cannot be empty!</p>
         <label for="author">Author:</label><br/>
         <input class="text-input" type="text" name="author" required><br/>
+        <p class="invalid-input-text" id="invalid-author-text">Author cannot be empty!</p>
         <label for="pages">Pages:</label><br/>
-        <input class="text-input" type="number" name="pages" required><br/>
+        <input class="text-input" type="number" min="1" name="pages" required><br/>
+        <p class="invalid-input-text" id="invalid-pages-text">Pages must be a positive integer!</p>
         <label for="read" class="switch">Mark as read:
           <input class="toggle" type="checkbox" name="read">
         </label>

@@ -107,7 +107,7 @@ main {
             &::after {
 
               transform: translateX(16px);
-              background: rgba(darkseagreen, 1);
+              background: rgba(palegreen, 1);
             }
           }
         }
@@ -139,10 +139,9 @@ main {
 
   #new-book-form {
 
-    // transform: scale(0.5);
-    filter: opacity(0);
-    pointer-events: none;
-    user-select: none;
+    // filter: opacity(0);
+    // pointer-events: none;
+    // user-select: none;
 
     z-index: 1;
     top: 20%;
@@ -163,7 +162,20 @@ main {
     color: lighten($background, 72);
   
     label {
-      margin: 1em 0 0.5em;
+      margin: 1em 0;
+    }
+
+    .invalid-input-text {
+      
+      margin-top: 0.5em;
+      color: salmon;
+
+      &#invalid-title-text,
+      &#invalid-author-text,
+      &#invalid-pages-text {
+        opacity: 0;
+        user-select: none;
+      }
     }
   
     .switch {
@@ -172,6 +184,39 @@ main {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+
+      .toggle {
+  
+        height: 20px;
+        min-width: 0;
+        max-width: 40px;
+        border-radius: 16px;
+        display: inline-block;
+        position: relative;
+        margin: 0;
+        background: $background;
+        // border: 2px solid salmon;
+  
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: salmon;
+          transition: $transition-params;
+        }
+  
+        &:checked {
+          
+          &::after {
+            transform: translateX(20px);
+            background: palegreen;
+          }
+        }
+      }
     }
   
     input {
@@ -191,39 +236,6 @@ main {
         appearance: none;
         -webkit-tap-highlight-color: transparent;
         cursor: pointer;
-      }
-  
-      &.toggle {
-  
-        height: 20px;
-        min-width: 0;
-        max-width: 40px;
-        border-radius: 16px;
-        display: inline-block;
-        position: relative;
-        margin: 0;
-        background: salmon;
-        // border: 2px solid salmon;
-  
-        &::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 20px;
-          height: 20px;
-          border-radius: 50%;
-          background: $text;
-          transition: $transition-params;
-        }
-  
-        &:checked {
-          background: darkseagreen;
-  
-          &::after {
-            transform: translateX(20px);
-          }
-        }
       }
   
       &.submit-button {

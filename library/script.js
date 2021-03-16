@@ -6,6 +6,9 @@ let formTitleField = null;
 let formAuthorField = null;
 let formPagesField = null;
 let formReadCheckbox = null;
+let invalidTitleText = null;
+let invalidAuthorText = null;
+let invalidPagesText = null;
 
 function main () {
   window.addEventListener('load', () => init());
@@ -22,6 +25,10 @@ function init () {
   formAuthorField = newBookForm.elements["author"];
   formPagesField = newBookForm.elements["pages"];
   formReadCheckbox = newBookForm.elements["read"];
+
+  invalidTitleText = document.getElementById("invalid-title-text");
+  invalidAuthorText = document.getElementById("invalid-author-text");
+  invalidPagesText = document.getElementById("invalid-pages-text");
 
   for (let i = 0; i < 3; i++) {
     const book = new Book(bookHash("Book " + i, "Author " + 1, i), "Book " + i, "Author " + i, i, false);
@@ -41,6 +48,7 @@ function Book (id, title, author, pages, read) {
 
 function createBook () {
 
+  if (!confirmValidity()) return;
   
   const title = formTitleField.value;
   const author = formAuthorField.value;
@@ -62,6 +70,15 @@ function createBook () {
 
   hideNewBookForm();
   newBookForm.reset();
+}
+
+function confirmValidity () {
+
+  invalidTitleText.style.opacity = formTitleField.validity.valid ? 0 : 1;
+  invalidAuthorText.style.opacity = formAuthorField.validity.valid ? 0 : 1;
+  invalidPagesText.style.opacity = formPagesField.validity.valid ? 0 : 1;
+
+  return formTitleField.validity.valid && formAuthorField.validity.valid && formPagesField.validity.valid;
 }
 
 function showNewBookForm () {

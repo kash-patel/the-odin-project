@@ -7,7 +7,7 @@
 html {
   height: 100%;
   background: #121212;
-  color: #fcfcfc;
+  color: white;
   font-family: "Fira Sans", "Roboto", sans-serif;
   font-weight: 300;
 }
@@ -61,7 +61,7 @@ footer p {
   opacity: 0.5;
 }
 footer a {
-  color: #fcfcfc;
+  color: white;
   text-decoration: none;
   border-bottom: 1px solid;
 }
@@ -154,7 +154,7 @@ main #book-list .book-card .actions .read-toggle::after {
 }
 main #book-list .book-card .actions .read-toggle:checked::after {
   transform: translateX(16px);
-  background: darkseagreen;
+  background: palegreen;
 }
 main #book-list .book-card .actions .remove-button {
   border: 1px solid #929292;
@@ -175,9 +175,6 @@ main #book-list .book-card .actions .remove-button:active {
   background: salmon;
 }
 main #new-book-form {
-  filter: opacity(0);
-  pointer-events: none;
-  user-select: none;
   z-index: 1;
   top: 20%;
   position: fixed;
@@ -197,7 +194,15 @@ main #new-book-form {
   color: #cacaca;
 }
 main #new-book-form label {
-  margin: 1em 0 0.5em;
+  margin: 1em 0;
+}
+main #new-book-form .invalid-input-text {
+  margin-top: 0.5em;
+  color: salmon;
+}
+main #new-book-form .invalid-input-text#invalid-title-text, main #new-book-form .invalid-input-text#invalid-author-text, main #new-book-form .invalid-input-text#invalid-pages-text {
+  opacity: 0;
+  user-select: none;
 }
 main #new-book-form .switch {
   width: 100%;
@@ -205,6 +210,31 @@ main #new-book-form .switch {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+main #new-book-form .switch .toggle {
+  height: 20px;
+  min-width: 0;
+  max-width: 40px;
+  border-radius: 16px;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  background: #121212;
+}
+main #new-book-form .switch .toggle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: salmon;
+  transition: all 0.1s ease-in-out;
+}
+main #new-book-form .switch .toggle:checked::after {
+  transform: translateX(20px);
+  background: palegreen;
 }
 main #new-book-form input {
   width: 100%;
@@ -221,33 +251,6 @@ main #new-book-form input[type=checkbox] {
   appearance: none;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
-}
-main #new-book-form input.toggle {
-  height: 20px;
-  min-width: 0;
-  max-width: 40px;
-  border-radius: 16px;
-  display: inline-block;
-  position: relative;
-  margin: 0;
-  background: salmon;
-}
-main #new-book-form input.toggle::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #fcfcfc;
-  transition: all 0.1s ease-in-out;
-}
-main #new-book-form input.toggle:checked {
-  background: darkseagreen;
-}
-main #new-book-form input.toggle:checked::after {
-  transform: translateX(20px);
 }
 main #new-book-form input.submit-button {
   cursor: pointer;
@@ -281,7 +284,7 @@ main button#new-book {
   box-shadow: 0 0 50px 0 black;
   border-radius: 50px;
   padding: 0.5rem 0.9rem;
-  color: #fcfcfc;
+  color: white;
   font-size: 2em;
   line-height: 1;
 }
