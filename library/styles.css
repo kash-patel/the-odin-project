@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+* {
+  transition: all 0.1s ease-in-out;
+}
+
+html {
+  height: 100%;
+  background: #121212;
+  color: #fcfcfc;
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+body {
+  min-height: 100%;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  color: #121212;
+  font-family: "Fira Sans", "Roboto", sans-serif;
+}
+
+header {
+  text-align: center;
+}
+header h1 {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+main {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+footer p {
+  margin: 0;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+footer a {
+  color: #fcfcfc;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+footer a:focus, footer a:active {
+  color: skyblue;
+  border-color: transparent;
+}
+
+main .inactive {
+  user-select: none;
+  pointer-events: none;
+  transform: scale(0.9);
+  filter: opacity(0.5);
+}
+main #book-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+main #book-list .book-card {
+  border: 1px solid #929292;
+  border-radius: 5px;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+main #book-list .book-card:hover {
+  background: #1c1c1c;
+}
+main #book-list .book-card .info {
+  vertical-align: middle;
+}
+main #book-list .book-card .info .title, main #book-list .book-card .info .author, main #book-list .book-card .info .pages {
+  display: block;
+  margin: 0;
+}
+main #book-list .book-card .info .title {
+  margin-bottom: 1rem;
+}
+main #book-list .book-card .info .author, main #book-list .book-card .info .pages {
+  font-size: 0.8em;
+  color: #929292;
+}
+main #book-list .book-card .actions {
+  vertical-align: bottom;
+  margin: auto 0 auto auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+main #book-list .book-card .actions .read-toggle {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  outline: none;
+  height: 16px;
+  width: 32px;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+  right: -27px;
+  left: auto;
+  background: #313131;
+  margin: 0;
+  box-sizing: border-box;
+}
+main #book-list .book-card .actions .read-toggle::before {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-weight: 300;
+  content: "Mark as read";
+  line-height: 16px;
+  position: absolute;
+  right: 20px;
+  width: 100px;
+  color: #929292;
+  font-size: 1em;
+}
+main #book-list .book-card .actions .read-toggle::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  background: salmon;
+  transition: all 0.1s ease-in-out;
+}
+main #book-list .book-card .actions .read-toggle:checked::after {
+  transform: translateX(16px);
+  background: darkseagreen;
+}
+main #book-list .book-card .actions .remove-button {
+  border: 1px solid #929292;
+  color: #929292;
+  background: none;
+  padding: 0.5em;
+  border-radius: 5px;
+  font-weight: 300;
+  font-size: 0.8em;
+}
+main #book-list .book-card .actions .remove-button:hover {
+  border: 1px solid salmon;
+  color: salmon;
+}
+main #book-list .book-card .actions .remove-button:active {
+  border-color: transparent;
+  color: #121212;
+  background: salmon;
+}
+main #new-book-form {
+  transform: scale(0.5);
+  filter: opacity(0);
+  pointer-events: none;
+  user-select: none;
+  top: 20%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: #313131;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 50px 0 black;
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #cacaca;
+}
+main #new-book-form label {
+  margin: 1em 0 0.5em;
+}
+main #new-book-form .switch {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+main #new-book-form input {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  padding: 0.2em 0.5em;
+  box-sizing: border-box;
+}
+main #new-book-form input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+main #new-book-form input.toggle {
+  height: 20px;
+  min-width: 0;
+  max-width: 40px;
+  border-radius: 16px;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  background: salmon;
+}
+main #new-book-form input.toggle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fcfcfc;
+  transition: all 0.1s ease-in-out;
+}
+main #new-book-form input.toggle:checked {
+  background: darkseagreen;
+}
+main #new-book-form input.toggle:checked::after {
+  transform: translateX(20px);
+}
+main #new-book-form input.submit-button {
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  padding: 0.5em 0;
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  color: #121212;
+  min-width: 0;
+  max-width: 150px;
+  margin: 0 auto;
+}
+main #new-book-form input.submit-button:hover {
+  background: #dedede;
+}
+main #new-book-form input.submit-button:active {
+  background: #929292;
+}
+main button#new-book {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #2c2c2c;
+  box-shadow: 0 0 50px 0 black;
+  border-radius: 50px;
+  padding: 0.5rem 0.9rem;
+  color: #fcfcfc;
+  font-size: 2em;
+  line-height: 1;
+}
+main button#new-book:hover {
+  background: #454545;
+}
+main button#new-book:active {
+  background: skyblue;
+}
+
+/*# sourceMappingURL=styles.css.map */

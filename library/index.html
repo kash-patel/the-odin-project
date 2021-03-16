@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Library</title>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Library</h1>
+    </header>
+    <main>
+      <div id="book-list"></div>
+      <form id="new-book-form" name="new-book-form" onsubmit="return false">
+        <label for="title">Title:</label><br/>
+        <input class="text-input" type="text" name="title" required><br/>
+        <label for="author">Author:</label><br/>
+        <input class="text-input" type="text" name="author" required><br/>
+        <label for="pages">Pages:</label><br/>
+        <input class="text-input" type="text" name="pages" required><br/>
+        <label for="read" class="switch">Mark as read:
+          <input class="toggle" type="checkbox" name="read">
+        </label>
+        <input class="submit-button" type="submit" name="submit" value="Add Book" onclick="createBook()">
+      </form>
+      <button id="new-book">+</button>
+    </main>
+    <footer>
+      <p>&copy; Kashyap Patel 2021</p>
+      <a href="http://kashpatel.ca">kashpatel.ca</a>
+    </footer>
+  </body>
+</html>
