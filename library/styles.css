@@ -175,6 +175,9 @@ main #book-list .book-card .actions .remove-button:active {
   background: salmon;
 }
 main #new-book-form {
+  filter: opacity(0);
+  pointer-events: none;
+  user-select: none;
   z-index: 1;
   top: 20%;
   position: fixed;
