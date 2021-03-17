@@ -35,7 +35,7 @@
       loginButton.hidden = true;
       
       greeting.hidden = false;
-      greeting.textContent = "Hi, " + user.displayName + "!<br/>Welcome to the Library!";
+      greeting.innerHTML = "Hi, " + user.displayName + "!<br/>Welcome to the Library!";
       logoutButton.hidden = false;
 
     } else {

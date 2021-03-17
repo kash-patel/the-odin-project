@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+// $background: #101216;
+$background: #121212;
+$text: white;
+$secondary: skyblue;
+$tertiary: salmon;
+
+$font-stack: "Fira Sans", "Roboto", sans-serif;
+
+$transition-params: all 0.1s ease-in-out;
+
+
+* {
+  transition: $transition-params;
+}
+
+html {
+
+  height: 100%;
+  background: $background;
+  color: $text;
+  font-family: $font-stack;
+  font-weight: 300;
+}
+
+body {
+
+  min-height: 100%;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  color: $background;
+  font-family: $font-stack;
+}
+
+header {
+  
+  // margin-top: 1rem;
+  text-align: center;
+  
+  h1 {
+
+    // margin: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+  }
+}
+
+main {
+
+  // max-width: 900px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+footer {
+
+  text-align: center;
+  margin-bottom: 1rem;
+
+  p {
+    margin: 0;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  a {
+
+    color: $text;
+    text-decoration: none;
+    border-bottom: 1px solid;
+
+    &:focus,
+    &:active {
+
+      color: $secondary;
+      border-color: transparent;
+    }
+  }
+}
