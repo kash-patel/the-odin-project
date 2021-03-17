@@ -11,78 +11,81 @@
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
 
-  let ui = null;
-  let provider = null;
-  let toggleAuthButton = null;
+  const loginButton = document.getElementById("login-button");
+  const logoutButton = document.getElementById("logout-button");
+  const greeting = document.getElementById("greeting");
 
-  toggleAuthButton = document.getElementById("auth-button");
-  ui = new firebaseui.auth.AuthUI(firebase.auth());
-  provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/plus.login');
+  const ui = new firebaseui.auth.AuthUI(firebase.auth());
+  const provider = new firebase.auth.GoogleAuthProvider();
+  // provider.addScope('https://www.googleapis.com/auth/plus.login');
+
+  loginButton.onclick = () => firebase.auth().signInWithRedirect(provider);
+  logoutButton.onclick = () => firebase.auth().signOut();
+  
+  logoutButton.hidden = true;
+  greeting.hidden = true;
 
   firebase.auth().onAuthStateChanged(user => {
+
+    console.log("State changed.")
     
     if (user) {
+
       // User is signed in.
-      console.log("User: " + user.displayName);
-
-      toggleAuthButton.textContent = "Sign Out";
-
-      toggleAuthButton.addEventListener("click", () => {
-        signOut();
-      });
-
-      toggleAuthButton.removeEventListener("click", () => {
-        signIn(provider);
-      });
+      loginButton.hidden = true;
+      
+      greeting.hidden = false;
+      greeting.textContent = "Hi, " + user.displayName + "!<br/>Welcome to the Library!";
+      logoutButton.hidden = false;
 
     } else {
+
       // No user is signed in.
-      console.log("No user.");
-
-      toggleAuthButton.textContent = "Sign In";
-
-      toggleAuthButton.removeEventListener("click", () => {
-        signOut();
-      });
-
-      toggleAuthButton.addEventListener("click", () => {
-        signIn(provider);
-      });
+      loginButton.hidden = false;
+      
+      greeting.hidden = true;
+      // greeting.textContent = "Hi, " + user.displayName + "!<br/>Welcome to the Library!";
+      logoutButton.hidden = true;
     }
   });
 }());
 
 function signIn (provider) {
 
-  firebase.auth().signInWithRedirect(provider);
+  // console.log("Signing in...");
+  // firebase.auth().signInWithRedirect(provider);
 
-  firebase.auth()
-  .getRedirectResult()
-  // .signInWithPopup(provider)
-  .then((result) => {
-    /** @type {firebase.auth.OAuthCredential} */
-    var credential = result.credential;
 
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-    console.log(user.displayName + " logged in.");
-  }).catch((error) => {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
+  // firebase.auth().getRedirectResult().then((result) => {
+    
+  //   /** @type {firebase.auth.OAuthCredential} */
+  //   var credential = result.credential;
+
+  //   // This gives you a Google Access Token. You can use it to access the Google API.
+  //   var token = credential.accessToken;
+
+  //   // The signed-in user info.
+  //   var user = result.user;
+
+  //   // ...
+
+  // }).catch((error) => {
+
+  //   // Handle Errors here.
+  //   var errorCode = error.code;
+    
+  //   var errorMessage = error.message;
+    
+  //   // The email of the user's account used.
+  //   var email = error.email;
+    
+  //   // The firebase.auth.AuthCredential type that was used.
+  //   var credential = error.credential;
+    
+  //   // ...
+  // });
 }
 
 function signOut () {
-
-  firebase.auth().signOut();
+  // firebase.auth().signOut();
 }
