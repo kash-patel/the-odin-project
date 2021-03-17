@@ -84,5 +84,5 @@ function signIn (provider) {
 
 function signOut () {
 
-  firebase.auth().signout();
+  firebase.auth().signOut();
 }
