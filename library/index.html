@@ -5,35 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Library</title>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
     <script type="text/javascript" src="script.js"></script>
+    <title>Library</title>
   </head>
   <body>
+
     <header>
       <h1>Library</h1>
+      <button id="auth-button"></button>
     </header>
+
     <main>
+
       <div id="book-list"></div>
+
       <form id="new-book-form" name="new-book-form" novalidate onsubmit="return false">
+
         <label for="title">Title:</label><br/>
         <input class="text-input" type="text" name="title" required><br/>
         <p class="invalid-input-text" id="invalid-title-text">Title cannot be empty!</p>
+        
         <label for="author">Author:</label><br/>
         <input class="text-input" type="text" name="author" required><br/>
         <p class="invalid-input-text" id="invalid-author-text">Author cannot be empty!</p>
+        
         <label for="pages">Pages:</label><br/>
         <input class="text-input" type="number" min="1" name="pages" required><br/>
         <p class="invalid-input-text" id="invalid-pages-text">Pages must be a positive integer!</p>
+        
         <label for="read" class="switch">Mark as read:
           <input class="toggle" type="checkbox" name="read">
         </label>
         <input class="submit-button" type="submit" name="submit" value="Add Book" onclick="createBook()">
       </form>
+
       <button id="new-book">+</button>
+
     </main>
+
     <footer>
       <p>&copy; Kashyap Patel 2021</p>
       <a href="http://kashpatel.ca">kashpatel.ca</a>
     </footer>
+
+    <script src="auth.js"></script>
+
   </body>
 </html>

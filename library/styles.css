@@ -70,6 +70,28 @@ footer a:focus, footer a:active {
   border-color: transparent;
 }
 
+header {
+  margin-bottom: 2rem;
+}
+header h1 {
+  margin-bottom: 0.5rem;
+}
+header #auth-button {
+  padding: 0.5em;
+  background: none;
+  color: #929292;
+  border: 1px solid;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+header #auth-button:hover {
+  color: skyblue;
+}
+header #auth-button:active {
+  color: #121212;
+  background: skyblue;
+}
+
 main .inactive {
   user-select: none;
   pointer-events: none;

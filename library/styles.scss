@@ -1,5 +1,34 @@
 @import "../global.scss";
 
+
+header {
+
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  #auth-button {
+
+    padding: 0.5em;
+    background: none;
+    color: lighten($background, 50);
+    border: 1px solid;
+    border-radius: 5px;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $secondary;
+    }
+
+    &:active {
+      color: $background;
+      background: $secondary;
+    }
+  }
+
+  margin-bottom: 2rem;
+}
+
 main {
 
   .inactive {
