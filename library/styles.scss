@@ -140,12 +140,12 @@ main {
           &::after {
             content: "";
             position: absolute;
-            top: 0px;
-            left: 0px;
+            top: 0;
+            left: 0;
             height: 16px;
             width: 16px;
             border-radius: 8px;
-            background: rgba(salmon, 1);
+            background: salmon;
             transition: $transition-params;
           }
 
@@ -154,7 +154,7 @@ main {
             &::after {
 
               transform: translateX(16px);
-              background: rgba(palegreen, 1);
+              background: palegreen;
             }
           }
         }
@@ -209,7 +209,7 @@ main {
     color: lighten($background, 72);
   
     label {
-      margin: 1em 0;
+      margin: 1em 0 0.1em;
     }
 
     .invalid-input-text {
@@ -349,7 +349,8 @@ main {
         .remove-button {
 
           &:active {
-            // background: rgba(salmon, 1);
+            background: salmon;
+            color: $background;
           }
         }
       }

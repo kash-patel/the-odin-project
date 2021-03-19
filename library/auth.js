@@ -1,15 +1,15 @@
-(function () {
-  var firebaseConfig = {
-    apiKey: "AIzaSyDCm3HQV7IA4xnLnZjamMNeLrXRV7NdYfs",
-    authDomain: "the-odin-project-library-e4c00.firebaseapp.com",
-    projectId: "the-odin-project-library-e4c00",
-    storageBucket: "the-odin-project-library-e4c00.appspot.com",
-    messagingSenderId: "948003883095",
-    appId: "1:948003883095:web:d1701e7045d0b9f7d4bb12"
-  };
+/**
+ * Contains methods related to user authentication.
+ */
 
-  firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
+"use strict";
+
+
+const Auth = (function () {
+
+  const auth = firebase.auth();
+
+  let currentUID = -1;
 
   const loginButton = document.getElementById("login-button");
   const logoutButton = document.getElementById("logout-button");
@@ -17,75 +17,74 @@
 
   const ui = new firebaseui.auth.AuthUI(firebase.auth());
   const provider = new firebase.auth.GoogleAuthProvider();
-  // provider.addScope('https://www.googleapis.com/auth/plus.login');
 
-  loginButton.onclick = () => firebase.auth().signInWithRedirect(provider);
-  logoutButton.onclick = () => firebase.auth().signOut();
-  
+
+  ui.disableAutoSignIn();
+
+  // loginButton.onclick = () => showSignInOptions();
+  // loginButton.onclick = () => auth.signInAnonymously();
+  loginButton.onclick = () => auth.signInWithRedirect(provider);
+  logoutButton.onclick = () => auth.signOut();
+
   logoutButton.hidden = true;
   greeting.hidden = true;
 
-  firebase.auth().onAuthStateChanged(user => {
-
-    console.log("State changed.")
+  auth.onAuthStateChanged(user => {
     
     if (user) {
 
-      // User is signed in.
+      currentUID = user.uid;
       loginButton.hidden = true;
-      
       greeting.hidden = false;
       greeting.innerHTML = "Hi, " + user.displayName + "!<br/>Welcome to the Library!";
       logoutButton.hidden = false;
+      
+      Library.loadUserLibrary();
 
     } else {
 
-      // No user is signed in.
+      currentUID = -1;
       loginButton.hidden = false;
-      
       greeting.hidden = true;
-      // greeting.textContent = "Hi, " + user.displayName + "!<br/>Welcome to the Library!";
       logoutButton.hidden = true;
+      
+      Library.clear();
     }
   });
+
+  function userSignedIn () { return currentUID !== -1};
+  function currentUserID () { return currentUID; };
+
+  function showSignInOptions () {
+
+    ui.start('#firebaseui-auth-container', UIConfig());  
+  }
+
+  function UIConfig () {
+    
+    const uiConfig = {
+      
+      callbacks: {
+        // Called when the user has been successfully signed in.
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          document.querySelector('#firebaseui-auth-container').style.display = 'none';
+
+          return false;
+        }
+      },
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID
+      ],
+      signInSuccessURL: "/library",
+    };
+    
+    return uiConfig;
+  }
+
+  return {
+    userSignedIn,
+    currentUserID
+  }
+
 }());
-
-function signIn (provider) {
-
-  // console.log("Signing in...");
-  // firebase.auth().signInWithRedirect(provider);
-
-
-  // firebase.auth().getRedirectResult().then((result) => {
-    
-  //   /** @type {firebase.auth.OAuthCredential} */
-  //   var credential = result.credential;
-
-  //   // This gives you a Google Access Token. You can use it to access the Google API.
-  //   var token = credential.accessToken;
-
-  //   // The signed-in user info.
-  //   var user = result.user;
-
-  //   // ...
-
-  // }).catch((error) => {
-
-  //   // Handle Errors here.
-  //   var errorCode = error.code;
-    
-  //   var errorMessage = error.message;
-    
-  //   // The email of the user's account used.
-  //   var email = error.email;
-    
-  //   // The firebase.auth.AuthCredential type that was used.
-  //   var credential = error.credential;
-    
-  //   // ...
-  // });
-}
-
-function signOut () {
-  // firebase.auth().signOut();
-}
