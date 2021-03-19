@@ -1,6 +1,6 @@
 # Library
 
-Library project for The Odin Project.
+Library task for The Odin Project.
 
 # Features
 
