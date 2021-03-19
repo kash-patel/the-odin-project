@@ -58,6 +58,7 @@ const Book = (function () {
     readToggle.classList.add("read-toggle")
     readToggle.setAttribute("type", "checkbox");
     readToggle.dataset.id = this.id;
+    readToggle.checked = this.read;
     readToggle.addEventListener("change", () => {
       this.toggleRead();
     });
