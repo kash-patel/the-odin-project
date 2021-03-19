@@ -61,7 +61,10 @@ const Library = (function () {
   }
 
   
-  function clear () { books.length = 0; }
+  function clear () {
+    books.length = 0;
+    booksDiv.textContent = null;
+  }
 
   function bookIndex (id) {
 
