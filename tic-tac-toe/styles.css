@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+* {
+  transition: all 0.1s ease-in-out;
+}
+
+html {
+  height: 100%;
+  background: #121212;
+  color: white;
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+body {
+  min-height: 100%;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  color: #121212;
+  font-family: "Fira Sans", "Roboto", sans-serif;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+header h1 {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+main {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+footer p {
+  margin: 0;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+footer a:hover, footer a:focus, footer a:active {
+  color: skyblue;
+  border-color: transparent;
+}
+
+#newGameOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#newGameOptions button {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1em;
+  background: none;
+  color: grey;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+}
+#newGameOptions button#playLocalButton:hover {
+  color: orange;
+}
+#newGameOptions button#playLocalButton:active {
+  color: #121212;
+  background: orange;
+}
+#newGameOptions button#playAIButton:hover {
+  color: palegreen;
+}
+#newGameOptions button#playAIButton:active {
+  color: #121212;
+  background: palegreen;
+}
+#newGameOptions button#playOnlineButton:hover {
+  color: skyblue;
+}
+#newGameOptions button#playOnlineButton:active {
+  color: #121212;
+  background: skyblue;
+}
+
+#statusText {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.5em;
+  margin-bottom: 2rem;
+}
+
+#gameboard {
+  display: grid;
+  grid-template-rows: 64px 64px 64px;
+  grid-template-columns: 64px 64px 64px;
+  gap: 10px;
+}
+#gameboard button {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 2em;
+  background: none;
+  border-radius: 5px;
+  border: 1px solid;
+}
+#gameboard button.neutral {
+  color: grey;
+}
+#gameboard button.player {
+  color: skyblue;
+  background: skyblue;
+  transform: scale(0.5);
+}
+#gameboard button.opponent {
+  color: salmon;
+  background: salmon;
+  transform: scale(0.5);
+}
+#gameboard button.playerHighlight:hover {
+  color: skyblue;
+}
+#gameboard button.playerHighlight:active {
+  color: #121212;
+  background: skyblue;
+}
+#gameboard button.opponentHighlight:hover {
+  color: salmon;
+}
+#gameboard button.opponentHighlight:active {
+  color: #121212;
+  background: salmon;
+}
+
+#currentGameOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+#currentGameOptions button {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 1em;
+  background: none;
+  color: grey;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+}
+#currentGameOptions button#resetButton:hover {
+  color: palegreen;
+}
+#currentGameOptions button#resetButton:active {
+  color: #121212;
+  background: palegreen;
+}
+#currentGameOptions button#backButton:hover {
+  color: salmon;
+}
+#currentGameOptions button#backButton:active {
+  color: #121212;
+  background: salmon;
+}
+
+/*# sourceMappingURL=styles.css.map */

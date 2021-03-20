@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="displayController.js" defer></script>
+  <script src="gameboard.js" defer></script>
+  <script src="player.js" defer></script>
+  <script src="gameManager.js" defer></script>
+  <script src="app.js" defer></script>
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1>Tic-Tac-Toe</h1>
+  </header>
+  <main>
+    <div id="newGameOptions">
+      <button id="playLocalButton" onclick="GameManager.startLocalGame();">Play Local</button>
+      <button id="playAIButton" onclick="GameManager.startAIGame();">Play AI</button>
+      <!-- <button id="playOnlineButton">Play Online</button> -->
+    </div>
+    <p id="statusText">Blue wins!</p>
+    <div id="gameboard">
+      
+      <button class="neutral" data-row="0" data-col="0"></button>
+      <button class="neutral" data-row="0" data-col="1"></button>
+      <button class="neutral" data-row="0" data-col="2"></button>
+      
+      <button class="neutral" data-row="1" data-col="0"></button>
+      <button class="neutral" data-row="1" data-col="1"></button>
+      <button class="neutral" data-row="1" data-col="2"></button>
+      
+      <button class="neutral" data-row="2" data-col="0"></button>
+      <button class="neutral" data-row="2" data-col="1"></button>
+      <button class="neutral" data-row="2" data-col="2"></button>
+    
+    </div>
+    <div id="currentGameOptions">
+      <button id="resetButton" onclick="GameManager.resetBoard();">Reset Board</button>
+      <button id="backButton" onclick="GameManager.returnToMainMenu();">Return to Menu</button>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2021 Kashyap Patel</p>
+    <a href="http://kashpatel.ca">kashpatel.ca</a>
+  </footer>
+</body>
+</html>

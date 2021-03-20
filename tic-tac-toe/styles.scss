@@ -1,1 +1,181 @@
-@import "../global.scss";
+@import "../globals.scss";
+
+
+$neutralColour: grey;
+$playerColour: skyblue;
+$opponentColour: salmon;
+
+
+#newGameOptions {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  button {
+
+    font-family: $font-stack;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1em;
+    background: none;
+    color: $neutralColour;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+
+    &#playLocalButton {
+
+      &:hover {
+        color: orange;
+      }
+
+      &:active {
+        color: $background;
+        background: orange;
+      }
+    }
+
+    &#playAIButton {
+
+      &:hover {
+        color: palegreen;
+      }
+
+      &:active {
+        color: $background;
+        background: palegreen;
+      }
+    }
+
+    &#playOnlineButton {
+
+      &:hover {
+        color: skyblue;
+      }
+
+      &:active {
+        color: $background;
+        background: skyblue;
+      }
+    }
+  }
+}
+
+
+#statusText {
+
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.5em;
+  margin-bottom: 2rem;
+}
+
+
+#gameboard {
+
+  display: grid;
+  grid-template-rows: 64px 64px 64px;
+  grid-template-columns: 64px 64px 64px;
+  gap: 10px;
+
+  button {
+    
+    font-family: $font-stack;
+    font-weight: 400;
+    font-size: 2em;
+    background: none;
+    border-radius: 5px;
+    border: 1px solid;
+
+    &.neutral {
+      color: $neutralColour;
+    }
+
+    &.player {
+      color: $playerColour;
+      background: $playerColour;
+      transform: scale(0.5);
+    }
+
+    &.opponent {
+      color: $opponentColour;
+      background: $opponentColour;
+      transform: scale(0.5);
+    }
+
+    &.playerHighlight {
+
+      &:hover {
+        color: $playerColour;
+      }
+  
+      &:active {
+        color: $background;
+        background: $playerColour;
+      }
+    }
+
+    &.opponentHighlight {
+
+      &:hover {
+        color: $opponentColour;
+      }
+  
+      &:active {
+        color: $background;
+        background: $opponentColour;
+      }
+    } 
+  }
+}
+
+#currentGameOptions {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+
+  button {
+
+    font-family: $font-stack;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 1em;
+    background: none;
+    color: $neutralColour;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+
+    &#resetButton {
+
+      &:hover {
+        color: palegreen;
+      }
+
+      &:active {
+        color: $background;
+        background: palegreen;
+      }
+    }
+
+    &#backButton {
+
+      &:hover {
+        color: salmon;
+      }
+
+      &:active {
+        color: $background;
+        background: salmon;
+      }
+    }
+  }
+}
